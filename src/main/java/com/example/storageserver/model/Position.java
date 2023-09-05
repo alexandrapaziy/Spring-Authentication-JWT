@@ -10,4 +10,5 @@ public class Position {
     @Id
     private Integer id;
     private String position;
+
 }

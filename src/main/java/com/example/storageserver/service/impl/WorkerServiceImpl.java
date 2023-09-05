@@ -58,4 +58,5 @@ public class WorkerServiceImpl implements WorkerService {
         List<Worker> workers = workerRepository.findAll();
         return workers.isEmpty() ? new ArrayList<>() : workers;
     }
+
 }

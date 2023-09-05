@@ -14,5 +14,5 @@ public class WorkerFoundException extends Exception {
 
     public WorkerFoundException(ResponseEntity<?> exceptionHandler) {
     }
-}
 
+}

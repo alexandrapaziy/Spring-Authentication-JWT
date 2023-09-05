@@ -6,11 +6,13 @@ import com.example.storageserver.model.Worker;
 import com.example.storageserver.repository.PositionRepository;
 import com.example.storageserver.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -52,5 +54,11 @@ public class WorkerController {
     @ExceptionHandler(WorkerNotFoundException.class)
     public ResponseEntity<?> exceptionHandler(WorkerNotFoundException exception) {
         return ResponseEntity.ok(exceptionHandler(exception));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Worker>> getAllWorker() {
+        List<Worker> allWorker = workerService.getAll();
+        return new ResponseEntity<>(allWorker, HttpStatus.OK);
     }
 }

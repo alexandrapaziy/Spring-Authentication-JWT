@@ -1,12 +1,17 @@
 package com.example.storageserver.model;
 
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -15,12 +20,37 @@ public class Worker implements UserDetails {
 
     @Id
     private Long id;
+
+    @NotBlank(message = "Cannot be empty")
     private String name;
+
+    @NotBlank(message = "Cannot be empty")
     private String surname;
+
+    @NotBlank(message = "Cannot be empty")
     private String patronymic;
+
+    @NotBlank(message = "Cannot be empty")
+    @Size(min = 13, max = 13)
     private String phone;
+
+    @NotBlank(message = "Cannot be empty")
+    @Email
     private String email;
+
     private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "storage_id")
+    private Storage storage;
+
+    @OneToMany(mappedBy = "worker")
+    @JsonIgnore
+    private List<Arrival> arrivals;
+
+    @OneToMany(mappedBy = "worker")
+    @JsonIgnore
+    private List<Issuance> issuances;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "worker_position",
@@ -63,4 +93,5 @@ public class Worker implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

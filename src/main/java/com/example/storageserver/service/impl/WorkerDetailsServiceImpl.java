@@ -24,5 +24,6 @@ public class WorkerDetailsServiceImpl implements UserDetailsService {
 
         return worker;
     }
+
 }
 

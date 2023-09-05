@@ -19,4 +19,5 @@ public interface WorkerService {
     void delete(long id);
 
     List<Worker> getAll();
+
 }

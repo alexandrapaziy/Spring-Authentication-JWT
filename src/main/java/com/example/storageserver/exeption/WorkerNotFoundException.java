@@ -14,5 +14,5 @@ public class WorkerNotFoundException extends Exception {
 
     public WorkerNotFoundException(ResponseEntity<?> exceptionHandler) {
     }
-}
 
+}

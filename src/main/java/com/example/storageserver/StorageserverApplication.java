@@ -29,26 +29,26 @@ public class StorageserverApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("START");
 
-        Worker worker = new Worker();
-
-        Position position = new Position();
-        position.setId(1);
-        position.setPosition("DIRECTOR");
-
-        worker.setId(1L);
-        worker.setName("Jon");
-        worker.setSurname("Doe");
-        worker.setPatronymic("Doe");
-        worker.setPhone("+380936178150");
-        worker.setEmail("jondoe@gmail.com");
-        worker.setPassword(this.bCryptPasswordEncoder.encode("pass"));
-
-        Set<Position> positions = new HashSet<>();
-        positions.add(position);
-
-        worker.setPositions(positions);
-
-        Worker finalWorker = this.workerService.create(worker);
-        System.out.println(finalWorker.getEmail());
+//        Worker worker = new Worker();
+//
+//        Position position = new Position();
+//        position.setId(1);
+//        position.setPosition("DIRECTOR");
+//
+//        worker.setId(1L);
+//        worker.setName("Jon");
+//        worker.setSurname("Doe");
+//        worker.setPatronymic("Doe");
+//        worker.setPhone("+380936178150");
+//        worker.setEmail("jondoe@gmail.com");
+//        worker.setPassword(this.bCryptPasswordEncoder.encode("pass"));
+//
+//        Set<Position> positions = new HashSet<>();
+//        positions.add(position);
+//
+//        worker.setPositions(positions);
+//
+//        Worker finalWorker = this.workerService.create(worker);
+//        System.out.println(finalWorker.getEmail());
     }
 }

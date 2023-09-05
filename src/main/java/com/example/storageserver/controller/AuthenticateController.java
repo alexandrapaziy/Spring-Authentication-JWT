@@ -58,4 +58,5 @@ public class AuthenticateController {
     public Worker getCurrentWorker(Principal principal) {
         return ((Worker) this.workerDetailsService.loadUserByUsername(principal.getName()));
     }
+
 }
